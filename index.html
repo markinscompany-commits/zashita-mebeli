@@ -144,6 +144,102 @@ a{color:inherit;text-decoration:none}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
+/* ---------- общие секции ---------- */
+.sec{padding:104px 0}
+@media (min-width:768px){.sec{padding:120px 0}}
+@media (min-width:1081px){.sec{padding:140px 0}}
+.sec-head{margin-bottom:24px}
+@media (min-width:768px){.sec-head{margin-bottom:32px}}
+.sec-head h2{font-size:clamp(36px,3.4vw,44px)}
+.sec-head p{font-size:16px;color:var(--ink-2);margin-top:12px;max-width:56ch}
+
+/* ---------- до / после ---------- */
+.ba{position:relative;height:420px;overflow:hidden;cursor:col-resize;contain:layout paint;transform:translateZ(0)}
+@media (min-width:768px){.ba{height:520px}}
+.ba-side{position:absolute;inset:0}
+.ba-before{background:
+  repeating-linear-gradient(23deg,transparent 0 90px,rgba(255,255,255,.22) 90px 91px,transparent 91px 260px),
+  repeating-linear-gradient(-31deg,transparent 0 140px,rgba(255,255,255,.16) 140px 141px,transparent 141px 320px),
+  repeating-linear-gradient(78deg,transparent 0 200px,rgba(255,255,255,.12) 200px 201px,transparent 201px 430px),
+  radial-gradient(900px 500px at 70% 20%,rgba(255,255,255,.07),transparent 60%),
+  conic-gradient(from 200deg at 30% 70%,#1B1C1F,#26282C 25%,#17181B 50%,#222428 75%,#1B1C1F),#1B1C1F}
+.ba-after{background:
+  radial-gradient(900px 500px at 70% 20%,rgba(255,255,255,.20),transparent 60%),
+  linear-gradient(115deg,transparent 40%,rgba(255,255,255,.14) 50%,transparent 60%),
+  conic-gradient(from 200deg at 30% 70%,#1B1C1F,#26282C 25%,#17181B 50%,#222428 75%,#1B1C1F),#1B1C1F;
+  clip-path:inset(0 0 0 50%)}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;touch-action:none;cursor:col-resize}
+.ba-handle::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230B0B0A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center}
+.ba-tag{position:absolute;bottom:16px;font-size:13px;font-weight:500;color:#fff;background:rgba(8,8,7,.5);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:6px 12px;pointer-events:none}
+.ba-tag.l{left:16px}.ba-tag.r{right:16px}
+
+/* ---------- сравнение ---------- */
+.cmp{max-width:860px}
+.cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--line);padding:16px 0 18px}
+.cmp-row.head{border-top:0;padding-top:0}
+.cmp-cap{grid-column:1/-1;font-size:13px;color:var(--ink-3);margin-bottom:-8px;padding-top:16px;border-top:1px solid var(--line)}
+.cmp-cap:first-child{border-top:0;padding-top:0}
+.cmp-row .a{font-size:15px;font-weight:500;display:flex;align-items:flex-start;gap:8px}
+.cmp-row .a .icon{width:18px;height:18px;color:var(--accent);margin-top:2px}
+.cmp-row .b{font-size:15px;color:var(--ink-2)}
+.cmp-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+.cmp-head div{font-size:16px;font-weight:600}
+.cmp-head .b{color:var(--ink-3);font-weight:400}
+
+/* ---------- работы ---------- */
+.works{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;row-gap:40px}
+@media (min-width:1081px){.works{grid-template-columns:repeat(3,1fr);gap:20px;row-gap:40px}}
+.work-media{aspect-ratio:4/5;overflow:hidden;background:var(--surface-2)}
+.work-media i{display:block;width:100%;height:100%;transition:transform .42s}
+@media (hover:hover){.work:hover .work-media i{transform:scale(1.03)}}
+.work-name{font-size:15px;margin-top:20px}
+.work-sub{font-size:13px;color:var(--ink-3);margin-top:2px}
+.w1{background:radial-gradient(600px 400px at 70% 20%,rgba(255,255,255,.16),transparent 60%),conic-gradient(from 200deg at 30% 70%,#1B1C1F,#26282C 30%,#17181B 55%,#222428 80%,#1B1C1F)}
+.w2{background:radial-gradient(500px 350px at 70% 15%,rgba(255,166,80,.16),transparent 55%),repeating-linear-gradient(94deg,rgba(255,220,170,.05) 0 2px,transparent 2px 9px,rgba(0,0,0,.18) 9px 11px,transparent 11px 26px),linear-gradient(180deg,#33261A,#291D12)}
+.w3{background:radial-gradient(500px 400px at 30% 20%,rgba(120,120,115,.25),transparent 55%),linear-gradient(160deg,#EDEBE7 0%,#E2DFDA 40%,#EAE8E4 70%,#DDD9D3 100%)}
+.w4{background:repeating-linear-gradient(87deg,rgba(120,90,50,.12) 0 3px,transparent 3px 12px,rgba(90,65,35,.10) 12px 14px,transparent 14px 34px),linear-gradient(180deg,#D9CBB6,#CDBCA3)}
+.w5{background:radial-gradient(500px 350px at 65% 15%,rgba(190,215,235,.14),transparent 55%),repeating-radial-gradient(circle at 40% 60%,rgba(255,255,255,.03) 0 1px,transparent 1px 4px),linear-gradient(180deg,#191D21,#13171A)}
+.w6{background:radial-gradient(500px 350px at 70% 20%,rgba(140,200,170,.12),transparent 55%),conic-gradient(from 180deg at 40% 60%,#1C2E26,#25382F 30%,#182821 55%,#223429 80%,#1C2E26)}
+
+/* ---------- для заведений ---------- */
+.b2b{background:var(--ink);color:#fff}
+.b2b .sec-head p{color:rgba(255,255,255,.6)}
+.b2b-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:end}
+@media (min-width:1081px){.b2b-grid{grid-template-columns:1fr auto}}
+.b2b .btn-primary{background:#fff;color:var(--ink)}
+@media (hover:hover){.b2b .btn-primary:hover{background:var(--accent);color:#fff}}
+.b2b .btn-secondary{border-color:rgba(255,255,255,.4);color:#fff}
+@media (hover:hover){.b2b .btn-secondary:hover{background:#fff;color:var(--ink);border-color:#fff}}
+.b2b-cta{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- вопросы ---------- */
+.faq{max-width:860px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;font-size:17px;font-weight:500;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .icon{width:20px;height:20px;color:var(--ink-3);transition:transform .22s}
+.faq details[open] summary .icon{transform:rotate(45deg)}
+@media (hover:hover){.faq summary:hover{color:var(--accent)}}
+.faq .ans{padding:0 0 22px;font-size:15px;color:var(--ink-2);max-width:60ch}
+
+/* ---------- финал + подвал ---------- */
+.fin{text-align:left}
+.fin h2{font-size:clamp(36px,4.4vw,56px);margin-bottom:12px}
+.fin p{font-size:16px;color:var(--ink-2);margin-bottom:32px}
+.fin-cta{display:flex;gap:8px;flex-wrap:wrap;max-width:560px}
+.ftr{border-top:1px solid var(--line);padding:32px 0}
+.ftr-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.ftr-logo{font-family:'Cormorant',Georgia,serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:17px}
+.ftr-phone{font-size:18px;font-weight:600}
+@media (hover:hover){.ftr-phone:hover{color:var(--accent)}}
+.ftr-soc{display:flex;gap:8px}
+.ftr-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--ink);color:#fff;transition:background-color .14s}
+.ftr-soc .icon{width:16px;height:16px}
+@media (hover:hover){.ftr-soc a:hover{background:var(--accent)}}
+
 /* ---------- служебный блок ---------- */
 .tail{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--ink-3);font-size:13px;line-height:1.7}
 .tail b{color:var(--ink-2);font-weight:600}
@@ -237,9 +333,139 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="serif">Царапины остаются на плёнке</h2>
+      <p>Потяните ползунок: слева поверхность без защиты через год, справа - под плёнкой.</p>
+    </div>
+    <div class="ba reveal" data-ba>
+      <div class="ba-side ba-before"></div>
+      <div class="ba-side ba-after"></div>
+      <div class="ba-handle" data-ba-handle></div>
+      <div class="ba-tag l">Без защиты</div>
+      <div class="ba-tag r">С плёнкой</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="serif">Плёнка или накладка</h2>
+    </div>
+    <div class="cmp reveal">
+      <div class="cmp-head">
+        <div>Полиуретановая плёнка</div>
+        <div class="b">Накладка «мягкое стекло»</div>
+      </div>
+      <div class="cmp-row">
+        <div class="a"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Незаметна на поверхности</div>
+        <div class="b">Мутнеет и желтеет</div>
+      </div>
+      <div class="cmp-row">
+        <div class="a"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Мелкие царапины затягиваются</div>
+        <div class="b">Царапины остаются навсегда</div>
+      </div>
+      <div class="cmp-row">
+        <div class="a"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Служит 7-10 лет</div>
+        <div class="b">1-2 года до замены</div>
+      </div>
+      <div class="cmp-row">
+        <div class="a"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Клеится по форме изделия, с кромками</div>
+        <div class="b">Загибается по краям, собирает грязь</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="serif">Работы</h2>
+    </div>
+    <div class="works reveal">
+      <div class="work"><div class="work-media"><i class="w1"></i></div><div class="work-name">Столешница</div><div class="work-sub">Кварцевый агломерат · глянец</div></div>
+      <div class="work"><div class="work-media"><i class="w2"></i></div><div class="work-name">Кухонный гарнитур</div><div class="work-sub">Шпон ореха · мат</div></div>
+      <div class="work"><div class="work-media"><i class="w3"></i></div><div class="work-name">Обеденный стол</div><div class="work-sub">Мрамор · глянец</div></div>
+      <div class="work"><div class="work-media"><i class="w4"></i></div><div class="work-name">Подоконники</div><div class="work-sub">Дуб · мат</div></div>
+      <div class="work"><div class="work-media"><i class="w5"></i></div><div class="work-name">Барная стойка</div><div class="work-sub">Гранит · глянец</div></div>
+      <div class="work"><div class="work-media"><i class="w6"></i></div><div class="work-name">Стойка ресепшн</div><div class="work-sub">Камень · мат</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec b2b">
+  <div class="wrap b2b-grid">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <h2 class="serif">Для заведений</h2>
+      <p>Столы ресторанов и стойки отелей выглядят как новые каждый день. От десяти столов - выезд и расчёт в день обращения.</p>
+    </div>
+    <div class="b2b-cta reveal">
+      <a class="btn btn-primary" href="https://wa.me/79880000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%BC%D0%B5%D0%B1%D0%B5%D0%BB%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B0%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F." target="_blank" rel="noopener">Обсудить проект</a>
+      <a class="btn btn-secondary" href="tel:+79880000000">Позвонить</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="serif">Вопросы</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Выдержит ли горячее?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Горячую чашку и тарелку - спокойно. Кастрюлю с плиты лучше ставить на подставку: плёнка держит нагрев примерно до 100°C.</div>
+      </details>
+      <details>
+        <summary>Видно ли плёнку вблизи?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">На глянцевых поверхностях - нет. На матовых при желании можно найти край. Замерщик привезёт образцы - посмотрите на своей мебели до оклейки.</div>
+      </details>
+      <details>
+        <summary>Можно ли потом снять?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Да, снимается без следов и остатков клея. Поверхность под плёнкой остаётся в состоянии дня оклейки.</div>
+      </details>
+      <details>
+        <summary>Что, если край отклеится?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Приедем и переклеим бесплатно. Гарантия 5 лет - на отклеивание, пузыри и пожелтение.</div>
+      </details>
+      <details>
+        <summary>Сколько занимает оклейка?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Столешница - 2-3 часа, кухня целиком - один день. Всё делаем у вас дома, без пыли и запаха.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec fin" style="padding-top:0">
+  <div class="wrap reveal">
+    <h2 class="serif">Бесплатный замер</h2>
+    <p>Мастер приедет с образцами, замерит и назовёт точную цену. Махачкала, Каспийск, выезд по Дагестану.</p>
+    <div class="fin-cta">
+      <a class="btn btn-primary" href="https://wa.me/79880000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%BC%D0%B5%D1%80." target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.3-.2z"/></svg>
+        Написать в WhatsApp
+      </a>
+      <a class="btn btn-secondary" href="tel:+79880000000">+7 988 000-00-00</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div class="ftr-logo">Защита мебели</div>
+    <a class="ftr-phone" href="tel:+79880000000">+7 988 000-00-00</a>
+    <div class="ftr-soc">
+      <a href="https://wa.me/79880000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.3-.2z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</footer>
+
 <div class="tail">
   <div class="wrap">
-    <b>Черновик от 16.08.2026.</b> Цены (ориентир «Москва минус 40%»), название, телефон и параметры плёнки - заглушки для обсуждения с заказчиком. Дальше по плану: до/после, сравнение с накладками с маркетплейсов, портфолио, блок для заведений, вопросы-ответы.
+    <b>Черновик от 16.08.2026.</b> Цены (ориентир «Москва минус 40%»), название, телефон, параметры плёнки и тексты - заглушки для обсуждения с заказчиком. Фактуры в hero, «до/после» и «Работах» - временные, заменяются на реальные фото работ.
   </div>
 </div>
 
@@ -278,6 +504,25 @@ a{color:inherit;text-decoration:none}
   /* появление при скролле */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* до / после */
+  var ba=document.querySelector('[data-ba]');
+  if(ba){
+    var after=ba.querySelector('.ba-after');
+    var handle=ba.querySelector('[data-ba-handle]');
+    function setX(clientX){
+      var r=ba.getBoundingClientRect();
+      var x=Math.max(.03,Math.min(.97,(clientX-r.left)/r.width));
+      after.style.clipPath='inset(0 0 0 '+(x*100)+'%)';
+      handle.style.left=(x*100)+'%';
+    }
+    var drag=false;
+    handle.addEventListener('pointerdown',function(e){drag=true;handle.setPointerCapture(e.pointerId);e.preventDefault()});
+    handle.addEventListener('pointermove',function(e){if(drag)setX(e.clientX)});
+    handle.addEventListener('pointerup',function(){drag=false});
+    handle.addEventListener('pointercancel',function(){drag=false});
+    ba.addEventListener('click',function(e){if(e.target!==handle)setX(e.clientX)});
+  }
 
   /* калькулятор */
   var ITEMS=[
