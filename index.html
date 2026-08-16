@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Защита мебели плёнкой в Махачкале - черновик</title>
+<meta name="description" content="Бронирование мебели прозрачной полиуретановой плёнкой в Махачкале: столешницы, кухни, столы, подоконники. Расчёт стоимости за минуту.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@300;400;500;600;800&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- сброс ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Onest',sans-serif;background:#0B0C0D;color:#1C1A17}
+img,svg{display:block;max-width:100%}
+button{padding:0;border:0;background:none;font:inherit;color:inherit;cursor:pointer}
+input{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+.icon{flex:0 0 auto}
+
+/* ---------- служебная плашка для Марка/заказчика ---------- */
+.draft-bar{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:center;padding:9px 16px;background:#101214;color:#9BA3AB;font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #23272B}
+.draft-bar b{color:#E8EAED;font-weight:600}
+.draft-bar a{color:#E8EAED;border-bottom:1px dashed #4A5158;padding-bottom:1px}
+@media (hover:hover){.draft-bar a:hover{color:#fff;border-color:#fff}}
+
+.variant-tag{display:flex;align-items:center;gap:14px;padding:26px 20px 22px;background:#0B0C0D;color:#6E7681;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.variant-tag::before,.variant-tag::after{content:"";height:1px;background:#23272B;flex:1}
+.variant-tag span{color:#C9CED4;font-weight:600}
+
+/* ============================================================
+   ВАРИАНТ А - «Шоурум»: светлый, спокойный, премиум
+   ============================================================ */
+.va{--ivory:#F6F3ED;--paper:#FFFDF9;--ink:#1C1A17;--muted:#6E675C;--line:#E4DED2;--bronze:#A97C2F;--bronze-d:#8C6524;
+  background:var(--ivory);color:var(--ink);position:relative;overflow:hidden;
+  padding:clamp(28px,5vw,64px) 20px clamp(48px,6vw,80px)}
+.va::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(169,124,47,.10), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(28,26,23,.05), transparent 55%)}
+.va-in{position:relative;max-width:1180px;margin:0 auto}
+.va-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(36px,6vw,72px)}
+.va-logo{font-family:'Prata',serif;font-size:20px;letter-spacing:.06em}
+.va-logo em{font-style:normal;color:var(--bronze)}
+.va-phone{font-size:15px;font-weight:600;letter-spacing:.02em;border-bottom:1px solid var(--line);padding-bottom:2px}
+@media (hover:hover){.va-phone:hover{border-color:var(--bronze);color:var(--bronze-d)}}
+
+.va-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center}
+@media (max-width:900px){.va-grid{grid-template-columns:1fr}}
+
+.va-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-d);margin-bottom:22px}
+.va-eyebrow::before{content:"";width:34px;height:1px;background:var(--bronze)}
+.va h1{font-family:'Prata',serif;font-weight:400;font-size:clamp(32px,4.6vw,56px);line-height:1.14;letter-spacing:.005em;margin-bottom:22px}
+.va h1 .thin{color:var(--muted)}
+.va-sub{font-size:clamp(15.5px,1.6vw,18px);line-height:1.65;color:var(--muted);max-width:46ch;margin-bottom:30px;font-weight:300}
+.va-sub b{color:var(--ink);font-weight:500}
+.va-points{display:flex;flex-direction:column;gap:14px;margin-bottom:34px}
+.va-point{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.5}
+.va-point .icon{width:20px;height:20px;margin-top:1px;color:var(--bronze)}
+.va-point span b{font-weight:600}
+.va-note{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.va-note .icon{width:15px;height:15px}
+
+/* стеклянная поверхность-визуал за калькулятором */
+.va-card-wrap{position:relative}
+.va-card-wrap::before{content:"";position:absolute;inset:-26px -18px auto auto;width:70%;height:120px;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.85) 50%,transparent 70%);
+  transform:rotate(-4deg);filter:blur(2px);opacity:.7;pointer-events:none}
+
+/* ---------- калькулятор А ---------- */
+.calc{position:relative;border-radius:18px}
+.va .calc{background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(28,26,23,.25),0 2px 0 rgba(255,255,255,.8) inset;padding:clamp(22px,3vw,34px)}
+.calc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:20px}
+.calc-title{font-size:17px;font-weight:600;letter-spacing:.01em}
+.va .calc-title{font-family:'Prata',serif;font-weight:400;font-size:20px}
+.calc-step{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.calc-label{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 10px}
+.calc-items{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media (max-width:430px){.calc-items{grid-template-columns:repeat(2,1fr)}}
+.calc-item{display:flex;flex-direction:column;align-items:center;gap:7px;padding:12px 6px 10px;border-radius:12px;border:1px solid var(--line);background:#FBF9F4;font-size:12.5px;line-height:1.25;text-align:center;color:var(--muted);transition:border-color .18s,color .18s,background .18s}
+.calc-item .icon{width:26px;height:26px;color:currentColor;opacity:.85}
+.calc-item.on{border-color:var(--bronze);color:var(--ink);background:#FFF;box-shadow:0 6px 16px -10px rgba(169,124,47,.5)}
+@media (hover:hover){.calc-item:hover{border-color:var(--bronze)}}
+.calc-dims{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc-field{position:relative}
+.calc-field input{width:100%;font-size:16px;padding:13px 52px 13px 14px;border:1px solid var(--line);border-radius:12px;background:#FBF9F4;outline:none;transition:border-color .18s}
+.calc-field input:focus{border-color:var(--bronze)}
+.calc-field .unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted)}
+.calc-area{display:none}
+.calc-area input[type=range]{width:100%;accent-color:var(--bronze);height:32px}
+.va .calc-area input[type=range]{accent-color:var(--bronze)}
+.calc-area-val{font-size:14px;color:var(--muted);margin-top:2px}
+.calc-area-val b{color:var(--ink);font-weight:600;font-size:15px}
+.calc-finish{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.calc-finish button{padding:11px 10px;border-radius:12px;border:1px solid var(--line);background:#FBF9F4;font-size:14px;color:var(--muted);transition:border-color .18s,color .18s,background .18s}
+.calc-finish button.on{border-color:var(--bronze);color:var(--ink);background:#FFF;font-weight:600}
+.calc-finish button small{display:block;font-size:11.5px;font-weight:400;color:var(--muted);margin-top:2px}
+.calc-out{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line);display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.calc-price-cap{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.calc-price{font-size:clamp(30px,4vw,38px);font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1}
+.va .calc-price{font-family:'Prata',serif;font-weight:400;color:var(--ink)}
+.calc-price small{font-size:.5em;color:var(--muted);font-weight:400;margin-right:6px}
+.calc-meta{font-size:12.5px;color:var(--muted);line-height:1.5;max-width:24ch;text-align:right}
+.calc-cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:15px;font-weight:600;border-radius:999px;padding:15px 24px;transition:transform .15s,box-shadow .15s,background .15s;letter-spacing:.01em}
+.btn .icon{width:18px;height:18px}
+.btn:active{transform:translateY(1px)}
+.btn-wa{flex:1;min-width:220px;background:#1FA855;color:#fff;box-shadow:0 14px 28px -14px rgba(31,168,85,.6)}
+@media (hover:hover){.btn-wa:hover{background:#188F47}}
+.va .btn-ghost{border:1px solid var(--line);color:var(--ink);background:#fff}
+@media (hover:hover){.va .btn-ghost:hover{border-color:var(--bronze)}}
+.calc-fine{margin-top:14px;font-size:12px;line-height:1.55;color:var(--muted)}
+
+/* ============================================================
+   ВАРИАНТ Б - «Студия»: тёмный, технологичный
+   ============================================================ */
+.vb{--bg:#0E1113;--panel:#14181B;--panel-2:#191E22;--line:#262D33;--txt:#EDF1F4;--muted:#8B959E;--lime:#C6F432;--lime-d:#A8D41F;
+  background:var(--bg);color:var(--txt);position:relative;overflow:hidden;font-family:'Golos Text',sans-serif;
+  padding:clamp(28px,5vw,60px) 20px clamp(52px,6vw,88px)}
+.vb::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(800px 520px at 50% 0%,#000 30%,transparent 75%);mask-image:radial-gradient(800px 520px at 50% 0%,#000 30%,transparent 75%)}
+.vb::after{content:"";position:absolute;left:50%;top:-220px;transform:translateX(-50%);width:820px;height:440px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(198,244,50,.14),transparent 70%);pointer-events:none}
+.vb-in{position:relative;max-width:1180px;margin:0 auto}
+.vb-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(40px,6vw,72px)}
+.vb-logo{font-family:'Unbounded',sans-serif;font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.vb-logo i{width:9px;height:9px;border-radius:2px;background:var(--lime);display:inline-block;flex:0 0 auto}
+.vb-phone{font-size:14.5px;font-weight:500;color:var(--muted)}
+@media (hover:hover){.vb-phone:hover{color:var(--txt)}}
+.vb-hero{text-align:center;margin-bottom:clamp(34px,4.5vw,52px)}
+.vb-chip{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(198,244,50,.3);border-radius:999px;padding:8px 16px;margin-bottom:26px;background:rgba(198,244,50,.06)}
+.vb-chip i{width:6px;height:6px;border-radius:50%;background:var(--lime);flex:0 0 auto;animation:vbPulse 2s infinite}
+@keyframes vbPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.vb h1{font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(27px,4.4vw,52px);line-height:1.12;letter-spacing:0;margin:0 auto 18px;max-width:21ch}
+.vb h1 .ol{color:transparent;-webkit-text-stroke:1.5px rgba(237,241,244,.55)}
+.vb h1 .lm{color:var(--lime)}
+.vb-sub{color:var(--muted);font-size:clamp(15px,1.6vw,17.5px);line-height:1.65;max-width:56ch;margin:0 auto}
+.vb-sub b{color:var(--txt);font-weight:600}
+.vb-stats{display:flex;justify-content:center;gap:clamp(20px,4vw,56px);margin:28px auto 0;flex-wrap:wrap}
+.vb-stat{text-align:center}
+.vb-stat b{display:block;font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(19px,2.4vw,26px);color:var(--txt)}
+.vb-stat span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.vb .calc{max-width:880px;margin:0 auto;background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px);box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.vb .calc-head{border-bottom:1px solid var(--line);padding-bottom:16px}
+.vb .calc-title{font-family:'Unbounded',sans-serif;font-weight:500;font-size:16px;letter-spacing:.02em}
+.vb .calc-step{color:var(--muted)}
+.vb .calc-label{color:var(--muted)}
+.vb .calc-items{grid-template-columns:repeat(6,1fr)}
+@media (max-width:760px){.vb .calc-items{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:430px){.vb .calc-items{grid-template-columns:repeat(2,1fr)}}
+.vb .calc-item{background:var(--panel);border-color:var(--line);color:var(--muted)}
+.vb .calc-item.on{border-color:var(--lime);color:var(--txt);background:rgba(198,244,50,.07);box-shadow:0 0 0 1px rgba(198,244,50,.25) inset}
+@media (hover:hover){.vb .calc-item:hover{border-color:rgba(198,244,50,.5)}}
+.vb .calc-field input{background:var(--panel);border-color:var(--line);color:var(--txt)}
+.vb .calc-field input:focus{border-color:var(--lime)}
+.vb .calc-field .unit{color:var(--muted)}
+.vb .calc-area input[type=range]{accent-color:var(--lime)}
+.vb .calc-area-val{color:var(--muted)}.vb .calc-area-val b{color:var(--txt)}
+.vb .calc-finish button{background:var(--panel);border-color:var(--line);color:var(--muted)}
+.vb .calc-finish button.on{border-color:var(--lime);color:var(--txt);background:rgba(198,244,50,.07)}
+.vb .calc-out{border-top:1px dashed var(--line)}
+.vb .calc-price-cap{color:var(--muted)}
+.vb .calc-price{font-family:'Unbounded',sans-serif;font-weight:600;color:var(--lime)}
+.vb .calc-price small{color:var(--muted)}
+.vb .calc-meta{color:var(--muted)}
+.vb .btn-wa{background:var(--lime);color:#10150A;box-shadow:0 16px 36px -16px rgba(198,244,50,.5)}
+@media (hover:hover){.vb .btn-wa:hover{background:var(--lime-d)}}
+.vb .btn-ghost{border:1px solid var(--line);color:var(--txt);background:transparent}
+@media (hover:hover){.vb .btn-ghost:hover{border-color:var(--muted)}}
+.vb .calc-fine{color:#5F6971}
+
+/* низ страницы - пояснение для заказчика */
+.tail{background:#0B0C0D;color:#9BA3AB;padding:40px 20px 64px;font-size:14px;line-height:1.7}
+.tail-in{max-width:760px;margin:0 auto}
+.tail h2{color:#E8EAED;font-size:16px;font-weight:600;margin-bottom:12px}
+.tail ul{margin:10px 0 0 18px}
+.tail li{margin-bottom:6px}
+.tail b{color:#C9CED4;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="draft-bar">
+  <span><b>Черновик от 16.08.2026</b> - контент и цены заглушечные, для показа заказчику</span>
+  <span>Внизу два варианта подачи: <a href="#va">Вариант А</a> и <a href="#vb">Вариант Б</a></span>
+</div>
+
+<div class="variant-tag" id="va">Вариант <span>А</span> - «Шоурум»: светлый, спокойный, премиум</div>
+
+<!-- ============ ВАРИАНТ А ============ -->
+<section class="va">
+  <div class="va-in">
+    <div class="va-top">
+      <div class="va-logo">ЗАЩИТА<em>·</em>МЕБЕЛИ</div>
+      <a class="va-phone" href="tel:+79880000000">+7 988 000-00-00</a>
+    </div>
+    <div class="va-grid">
+      <div>
+        <div class="va-eyebrow">Махачкала · Каспийск · выезд по Дагестану</div>
+        <h1>Царапины достаются плёнке.<br><span class="thin">Не вашей мебели.</span></h1>
+        <p class="va-sub">Оклеиваем столешницы, кухни, столы и подоконники <b>прозрачной полиуретановой плёнкой</b>. На поверхности её не видно и не чувствуется - а служит она 7-10 лет.</p>
+        <div class="va-points">
+          <div class="va-point">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span><b>Полиуретан 190 мкм</b> - мелкие царапины затягиваются сами</span>
+          </div>
+          <div class="va-point">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span><b>Один день</b> - клеим у вас дома, без пыли и запаха</span>
+          </div>
+          <div class="va-point">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span><b>Гарантия 5 лет</b> - на отклеивание, пузыри и пожелтение</span>
+          </div>
+        </div>
+        <p class="va-note">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg>
+          Точную цену подтверждает замерщик. Выезд на замер - бесплатный.
+        </p>
+      </div>
+      <div class="va-card-wrap">
+        <div class="calc" data-calc>
+          <div class="calc-head">
+            <div class="calc-title">Расчёт за минуту</div>
+            <div class="calc-step">без звонков и ожидания</div>
+          </div>
+          <div class="calc-label">Что защищаем</div>
+          <div class="calc-items" data-items></div>
+          <div class="calc-label" data-dims-label>Размеры поверхности</div>
+          <div class="calc-dims" data-dims>
+            <div class="calc-field"><input type="number" inputmode="numeric" data-len min="10" max="1000" value="300" aria-label="Длина"><span class="unit">см длина</span></div>
+            <div class="calc-field"><input type="number" inputmode="numeric" data-wid min="10" max="1000" value="60" aria-label="Ширина"><span class="unit">см ширина</span></div>
+          </div>
+          <div class="calc-area" data-area-wrap>
+            <input type="range" data-area min="3" max="16" step="0.5" value="8" aria-label="Площадь фасадов">
+            <div class="calc-area-val">Площадь фасадов: <b data-area-val>8 м²</b> <span>· не знаете точно - подскажет замерщик</span></div>
+          </div>
+          <div class="calc-label">Покрытие</div>
+          <div class="calc-finish" data-finish>
+            <button type="button" class="on" data-f="gloss">Глянец<small>невидим на камне и стекле</small></button>
+            <button type="button" data-f="matte">Мат<small>не бликует, скрывает отпечатки</small></button>
+          </div>
+          <div class="calc-out">
+            <div>
+              <div class="calc-price-cap">Предварительно</div>
+              <div class="calc-price"><small>от</small><span data-price>8 500</span> ₽</div>
+            </div>
+            <div class="calc-meta" data-meta>≈ 1,8 м² плёнки · работа + материал</div>
+          </div>
+          <div class="calc-cta">
+            <a class="btn btn-wa" data-wa href="https://wa.me/79880000000" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.3-.2z"/></svg>
+              Зафиксировать в WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="tel:+79880000000">Позвонить</a>
+          </div>
+          <p class="calc-fine">Расчёт предварительный: итог зависит от кромок, вырезов и состояния поверхности. Замерщик приедет бесплатно и назовёт точную цену до начала работ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="variant-tag" id="vb">Вариант <span>Б</span> - «Студия»: тёмный, технологичный</div>
+
+<!-- ============ ВАРИАНТ Б ============ -->
+<section class="vb">
+  <div class="vb-in">
+    <div class="vb-top">
+      <div class="vb-logo"><i></i>BRON·05</div>
+      <a class="vb-phone" href="tel:+79880000000">+7 988 000-00-00</a>
+    </div>
+    <div class="vb-hero">
+      <div class="vb-chip"><i></i>Защитная плёнка для мебели · Махачкала</div>
+      <h1>Броня для мебели,<br>которую <span class="ol">не видно</span>.<br>Совсем <span class="lm">никак</span>.</h1>
+      <p class="vb-sub">Та же полиуретановая плёнка, что защищает капоты дорогих машин - на вашей столешнице, кухне и столе. <b>Горячее, ножи, дети</b> - поверхность остаётся как из салона.</p>
+      <div class="vb-stats">
+        <div class="vb-stat"><b>7-10 лет</b><span>служит плёнка</span></div>
+        <div class="vb-stat"><b>190 мкм</b><span>полиуретан</span></div>
+        <div class="vb-stat"><b>1 день</b><span>монтаж у вас</span></div>
+        <div class="vb-stat"><b>5 лет</b><span>гарантия</span></div>
+      </div>
+    </div>
+    <div class="calc" data-calc>
+      <div class="calc-head">
+        <div class="calc-title">Калькулятор защиты</div>
+        <div class="calc-step">3 шага · 60 секунд</div>
+      </div>
+      <div class="calc-label">01 · Что защищаем</div>
+      <div class="calc-items" data-items></div>
+      <div class="calc-label" data-dims-label>02 · Размеры поверхности</div>
+      <div class="calc-dims" data-dims>
+        <div class="calc-field"><input type="number" inputmode="numeric" data-len min="10" max="1000" value="300" aria-label="Длина"><span class="unit">см длина</span></div>
+        <div class="calc-field"><input type="number" inputmode="numeric" data-wid min="10" max="1000" value="60" aria-label="Ширина"><span class="unit">см ширина</span></div>
+      </div>
+      <div class="calc-area" data-area-wrap>
+        <input type="range" data-area min="3" max="16" step="0.5" value="8" aria-label="Площадь фасадов">
+        <div class="calc-area-val">Площадь фасадов: <b data-area-val>8 м²</b> <span>· не знаете точно - подскажет замерщик</span></div>
+      </div>
+      <div class="calc-label">03 · Покрытие</div>
+      <div class="calc-finish" data-finish>
+        <button type="button" class="on" data-f="gloss">Глянец<small>невидим на камне и стекле</small></button>
+        <button type="button" data-f="matte">Мат<small>не бликует, скрывает отпечатки</small></button>
+      </div>
+      <div class="calc-out">
+        <div>
+          <div class="calc-price-cap">Предварительно</div>
+          <div class="calc-price"><small>от</small><span data-price>8 500</span> ₽</div>
+        </div>
+        <div class="calc-meta" data-meta>≈ 1,8 м² плёнки · работа + материал</div>
+      </div>
+      <div class="calc-cta">
+        <a class="btn btn-wa" data-wa href="https://wa.me/79880000000" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.3-.2z"/></svg>
+          Забрать расчёт в WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="tel:+79880000000">Позвонить</a>
+      </div>
+      <p class="calc-fine">Расчёт предварительный: итог зависит от кромок, вырезов и состояния поверхности. Замер бесплатный - точная цена до начала работ.</p>
+    </div>
+  </div>
+</section>
+
+<div class="tail">
+  <div class="tail-in">
+    <h2>Пояснение к черновику</h2>
+    <p>Это первый блок будущего одностраничника - экран знакомства с калькулятором. Всё, что здесь стоит, - заглушки для обсуждения:</p>
+    <ul>
+      <li><b>Цены</b> - ориентир «Москва минус ~40%» (у московского эталона столешница от 15 000 ₽). Меняются на цифры заказчика в одном месте кода.</li>
+      <li><b>Названия «ЗАЩИТА·МЕБЕЛИ» и «BRON·05»</b> - придуманы для макета, заменим на бренд заказчика.</li>
+      <li><b>Телефон и WhatsApp</b> +7 988 000-00-00 - заглушка.</li>
+      <li><b>Параметры плёнки</b> (полиуретан 190 мкм, 7-10 лет, гарантия 5 лет) - реальные характеристики TPU-плёнок среднего класса; подгоним под материал, с которым работает заказчик.</li>
+    </ul>
+    <p style="margin-top:12px">Дальше по плану: до/после и видео работ, сравнение с «мягким стеклом», портфолио, блок для заведений, вопросы-ответы, финальная форма.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ITEMS=[
+    {id:'stoleshnica',label:'Столешница',rate:4500,min:8500,len:300,wid:60,icon:'M3 9h18M5 9v10M19 9v10M3 9l2-4h14l2 4'},
+    {id:'stol',label:'Обеденный стол',rate:4500,min:7000,len:160,wid:90,icon:'M4 7h16M6 7v12M18 7v12M6 12h12'},
+    {id:'kuhnya',label:'Кухня (фасады)',rate:4200,min:20000,area:8,icon:'M4 4h16v16H4zM4 12h16M12 4v8M8 16h.01M16 16h.01'},
+    {id:'podokonnik',label:'Подоконник',rate:4000,min:4000,len:150,wid:40,icon:'M4 15h16M4 15l2-2h12l2 2M7 19h10'},
+    {id:'zhurnal',label:'Журнальный столик',rate:4500,min:5500,len:90,wid:60,icon:'M5 10h14M7 10v7M17 10v7M9 17h6'},
+    {id:'tumba',label:'Тумба / комод',rate:4500,min:6000,len:100,wid:50,icon:'M5 5h14v14H5zM5 12h14M12 8v.01M12 15v.01'}
+  ];
+  var fmt=function(n){return n.toLocaleString('ru-RU')};
+  var areaStr=function(a){return (Math.round(a*10)/10).toLocaleString('ru-RU')};
+
+  document.querySelectorAll('[data-calc]').forEach(function(root){
+    var state={item:ITEMS[0],finish:'gloss'};
+    var itemsBox=root.querySelector('[data-items]');
+    var dims=root.querySelector('[data-dims]');
+    var dimsLabel=root.querySelector('[data-dims-label]');
+    var areaWrap=root.querySelector('[data-area-wrap]');
+    var areaInput=root.querySelector('[data-area]');
+    var areaVal=root.querySelector('[data-area-val]');
+    var lenI=root.querySelector('[data-len]');
+    var widI=root.querySelector('[data-wid]');
+    var priceEl=root.querySelector('[data-price]');
+    var metaEl=root.querySelector('[data-meta]');
+    var waBtn=root.querySelector('[data-wa]');
+
+    ITEMS.forEach(function(it,i){
+      var b=document.createElement('button');
+      b.type='button';
+      b.className='calc-item'+(i===0?' on':'');
+      b.innerHTML='<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="'+it.icon+'"/></svg><span>'+it.label+'</span>';
+      b.addEventListener('click',function(){
+        itemsBox.querySelectorAll('.calc-item').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on');
+        state.item=it;
+        if(it.area){dims.style.display='none';areaWrap.style.display='block';dimsLabel.style.display='none'}
+        else{dims.style.display='grid';areaWrap.style.display='none';dimsLabel.style.display='block';lenI.value=it.len;widI.value=it.wid}
+        update();
+      });
+      itemsBox.appendChild(b);
+    });
+
+    root.querySelectorAll('[data-finish] button').forEach(function(b){
+      b.addEventListener('click',function(){
+        root.querySelectorAll('[data-finish] button').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on');
+        state.finish=b.getAttribute('data-f');
+        update();
+      });
+    });
+    [lenI,widI].forEach(function(i){i.addEventListener('input',update)});
+    areaInput.addEventListener('input',update);
+
+    function update(){
+      var area;
+      if(state.item.area){
+        area=parseFloat(areaInput.value)||8;
+        areaVal.textContent=areaStr(area)+' м²';
+      }else{
+        var L=Math.min(1000,Math.max(0,parseFloat(lenI.value)||0));
+        var W=Math.min(1000,Math.max(0,parseFloat(widI.value)||0));
+        area=L*W/10000;
+      }
+      var k=state.finish==='matte'?1.15:1;
+      var price=Math.max(state.item.min,area*state.item.rate)*k;
+      price=Math.ceil(price/500)*500;
+      priceEl.textContent=fmt(price);
+      metaEl.innerHTML='≈ '+areaStr(area*1.1)+' м² плёнки<br>работа + материал';
+      var msg='Здравствуйте! Считал(а) на сайте: '+state.item.label.toLowerCase()+
+        (state.item.area?', фасады ≈ '+areaStr(area)+' м²':', '+(lenI.value||0)+'×'+(widI.value||0)+' см')+
+        ', покрытие '+(state.finish==='matte'?'мат':'глянец')+
+        '. Получилось от '+fmt(price)+' ₽. Хочу записаться на бесплатный замер.';
+      waBtn.href='https://wa.me/79880000000?text='+encodeURIComponent(msg);
+    }
+    update();
+  });
+})();
+</script>
+</body>
+</html>
